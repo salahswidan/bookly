@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/coustom_app_bar.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/coustom_list_view_item.dart';
@@ -14,24 +15,38 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomAppBar(),
-            FeaturedBookListView(),
-            Text(
-              'Best Seller',
-              style: Styles.textStyle18.copyWith(fontFamily: KGTSectraFine),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            BestSellerListViewItem(),
-          ],
+        body: CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: CustomAppBar(),
+              ),
+              FeaturedBookListView(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Best Seller',
+                  style: Styles.textStyle18.copyWith(fontFamily: KGTSectraFine),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ),
-      ),
-    );
+        const SliverFillRemaining(
+          child: Padding(
+
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: BestSellerListView(),
+          ),
+        ),
+      ],
+    ));
   }
 }
