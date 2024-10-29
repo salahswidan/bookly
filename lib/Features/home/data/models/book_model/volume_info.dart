@@ -6,6 +6,7 @@ import 'reading_modes.dart';
 class VolumeInfo {
   String? title;
   List<String>? authors;
+  String? publisher;
   String? publishedDate;
   String? description;
   List<IndustryIdentifier>? industryIdentifiers;
@@ -26,6 +27,7 @@ class VolumeInfo {
   VolumeInfo({
     this.title,
     this.authors,
+    this.publisher,
     this.publishedDate,
     this.description,
     this.industryIdentifiers,
@@ -47,6 +49,7 @@ class VolumeInfo {
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
         authors: json['authors'] as List<String>?,
+        publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
         industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
@@ -78,6 +81,7 @@ class VolumeInfo {
   Map<String, dynamic> toJson() => {
         'title': title,
         'authors': authors,
+        'publisher': publisher,
         'publishedDate': publishedDate,
         'description': description,
         'industryIdentifiers':
