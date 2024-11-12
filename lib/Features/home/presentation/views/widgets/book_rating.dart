@@ -4,9 +4,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BooKRating extends StatelessWidget {
   const BooKRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start});
+      {super.key,
+      this.mainAxisAlignment = MainAxisAlignment.start,
+      required this.rating,
+      required this.count});
 
   final MainAxisAlignment mainAxisAlignment;
+  final num rating;
+  final int count;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,8 +25,8 @@ class BooKRating extends StatelessWidget {
         const SizedBox(
           width: 6.3,
         ),
-        const Text(
-          '4.8',
+        Text(
+          rating.toString(),
           style: Styles.textStyle16,
         ),
         const SizedBox(
@@ -30,7 +35,7 @@ class BooKRating extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text(
-            '(245)',
+            '($count)',
             style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w500),
           ),
         ),
