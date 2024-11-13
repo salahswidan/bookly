@@ -6,7 +6,7 @@ class BooKRating extends StatelessWidget {
   const BooKRating(
       {super.key,
       this.mainAxisAlignment = MainAxisAlignment.start,
-      required this.rating,
+      required this.rating ,
       required this.count});
 
   final MainAxisAlignment mainAxisAlignment;
